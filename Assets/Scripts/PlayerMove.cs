@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float playerSpeed = 10f;
+    [SerializeField, FormerlySerializedAs("playerSpeed")]
+    private float moveSpeed = 10f;
     public float momentumDamping = 5f;
 
     [SerializeField, FormerlySerializedAs("myCaracterController")]
