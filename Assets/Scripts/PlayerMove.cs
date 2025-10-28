@@ -8,7 +8,8 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField, FormerlySerializedAs("myCaracterController")]
     private CharacterController controller;
-    public Animator camAnim;
+    [SerializeField, FormerlySerializedAs("camAnim")]
+    private Animator animator;
     private bool isWalking;
 
     private Vector3 inputVector;
