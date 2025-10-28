@@ -16,7 +16,8 @@ public class PlayerMove : MonoBehaviour
 
     private Vector3 inputVector;
     private Vector3 movementVector;
-    private float myGravity = -10f;
+    [SerializeField, FormerlySerializedAs("myGravity")]
+    private float gravity = -9.81f; // Consistencia con physics
 
     void Start()
     {
