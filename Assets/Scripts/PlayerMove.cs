@@ -1,3 +1,4 @@
+using UnityEngine.Serialization;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
@@ -5,7 +6,8 @@ public class PlayerMove : MonoBehaviour
     public float playerSpeed = 10f;
     public float momentumDamping = 5f;
 
-    private CharacterController myCaracterController;
+    [SerializeField, FormerlySerializedAs("myCaracterController")]
+    private CharacterController controller;
     public Animator camAnim;
     private bool isWalking;
 
