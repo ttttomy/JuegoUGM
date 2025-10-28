@@ -14,7 +14,7 @@ public class PlayerMove : MonoBehaviour
     private Animator animator;
     private bool isWalking;
 
-    private Vector3 inputVector;
+    private Vector3 moveInput;
     private Vector3 movementVector;
     [SerializeField, FormerlySerializedAs("myGravity")]
     private float gravity = -9.81f; // Consistencia con physics
@@ -41,15 +41,15 @@ public class PlayerMove : MonoBehaviour
            Input.GetKey(KeyCode.S) || 
            Input.GetKey(KeyCode.D))
         {
-            inputVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-            inputVector.Normalize();
-            inputVector = transform.TransformDirection(inputVector);
+            moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+            moveInput.Normalize();
+            moveInput = transform.TransformDirection(moveInput);
 
             isWalking = true;
         }
         else
         {
-            inputVector = Vector3.Lerp(inputVector, Vector3.zero, momentumDamping * Time.deltaTime);
+            moveInput = Vector3.Lerp(moveInput, Vector3.zero, inputDamping * Time.deltaTime);
 
             isWalking = false;
         }
