@@ -15,7 +15,7 @@ public class PlayerMove : MonoBehaviour
     private bool isWalking;
 
     private Vector3 moveInput;
-    private Vector3 movementVector;
+    private Vector3 motion;
     [SerializeField, FormerlySerializedAs("myGravity")]
     private float gravity = -9.81f; // Consistencia con physics
 
@@ -54,10 +54,10 @@ public class PlayerMove : MonoBehaviour
             isWalking = false;
         }
 
-        movementVector = (inputVector * playerSpeed) + (Vector3.up * myGravity);
+        motion = (moveInput * moveSpeed) + (Vector3.up * gravity);
     }
     void MovePlayer()
     {
-        myCaracterController.Move(movementVector * Time.deltaTime);
+        controller.Move(motion * Time.deltaTime);
     }
 }
