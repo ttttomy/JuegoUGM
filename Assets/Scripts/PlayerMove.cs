@@ -5,7 +5,8 @@ public class PlayerMove : MonoBehaviour
 {
     [SerializeField, FormerlySerializedAs("playerSpeed")]
     private float moveSpeed = 10f;
-    public float momentumDamping = 5f;
+    [SerializeField, FormerlySerializedAs("momentumDamping")]
+    private float inputDamping = 5f;
 
     [SerializeField, FormerlySerializedAs("myCaracterController")]
     private CharacterController controller;
